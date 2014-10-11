@@ -1,3 +1,7 @@
 re_configurator_homepage:
     path:     /hello/{name}
     defaults: { _controller: ReConfiguratorBundle:Default:index }
+
+index:
+    path:     /
+    defaults: { _controller: ReConfiguratorBundle:Homepage:index }
