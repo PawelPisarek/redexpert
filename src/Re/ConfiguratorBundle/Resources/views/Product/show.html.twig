@@ -1,0 +1,132 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Product</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ entity.name }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ entity.description }}</td>
+            </tr>
+            <tr>
+                <th>Instock</th>
+                <td>{{ entity.inStock }}</td>
+            </tr>
+            <tr>
+                <th>Hydrostat</th>
+                <td>{{ entity.hydrostat }}</td>
+            </tr>
+            <tr>
+                <th>Ionization</th>
+                <td>{{ entity.ionization }}</td>
+            </tr>
+            <tr>
+                <th>Warmmist</th>
+                <td>{{ entity.warmMist }}</td>
+            </tr>
+            <tr>
+                <th>Aromatherapy</th>
+                <td>{{ entity.aromatherapy }}</td>
+            </tr>
+            <tr>
+                <th>Autostop</th>
+                <td>{{ entity.autoStop }}</td>
+            </tr>
+            <tr>
+                <th>Light</th>
+                <td>{{ entity.light }}</td>
+            </tr>
+            <tr>
+                <th>Filter</th>
+                <td>{{ entity.filter }}</td>
+            </tr>
+            <tr>
+                <th>Filtertype</th>
+                <td>{{ entity.filterType }}</td>
+            </tr>
+            <tr>
+                <th>Area</th>
+                <td>{{ entity.area }}</td>
+            </tr>
+            <tr>
+                <th>Width</th>
+                <td>{{ entity.width }}</td>
+            </tr>
+            <tr>
+                <th>Height</th>
+                <td>{{ entity.height }}</td>
+            </tr>
+            <tr>
+                <th>Depth</th>
+                <td>{{ entity.depth }}</td>
+            </tr>
+            <tr>
+                <th>Minpower</th>
+                <td>{{ entity.minPower }}</td>
+            </tr>
+            <tr>
+                <th>Maxpower</th>
+                <td>{{ entity.maxPower }}</td>
+            </tr>
+            <tr>
+                <th>Maxworktime</th>
+                <td>{{ entity.maxWorkTime }}</td>
+            </tr>
+            <tr>
+                <th>Capacity</th>
+                <td>{{ entity.capacity }}</td>
+            </tr>
+            <tr>
+                <th>Humiditylevel</th>
+                <td>{{ entity.humidityLevel }}</td>
+            </tr>
+            <tr>
+                <th>Performance</th>
+                <td>{{ entity.performance }}</td>
+            </tr>
+            <tr>
+                <th>Volume</th>
+                <td>{{ entity.volume }}</td>
+            </tr>
+            <tr>
+                <th>Utilizationtime</th>
+                <td>{{ entity.utilizationTime }}</td>
+            </tr>
+            <tr>
+                <th>Warranty</th>
+                <td>{{ entity.warranty }}</td>
+            </tr>
+            <tr>
+                <th>Imagesurl</th>
+                <td>{{ entity.imagesURL }}</td>
+            </tr>
+            <tr>
+                <th>Videourl</th>
+                <td>{{ entity.videoURL }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('product') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('product_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

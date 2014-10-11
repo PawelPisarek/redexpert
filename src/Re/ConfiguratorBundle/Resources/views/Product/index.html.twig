@@ -1,0 +1,91 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Product list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Instock</th>
+                <th>Hydrostat</th>
+                <th>Ionization</th>
+                <th>Warmmist</th>
+                <th>Aromatherapy</th>
+                <th>Autostop</th>
+                <th>Light</th>
+                <th>Filter</th>
+                <th>Filtertype</th>
+                <th>Area</th>
+                <th>Width</th>
+                <th>Height</th>
+                <th>Depth</th>
+                <th>Minpower</th>
+                <th>Maxpower</th>
+                <th>Maxworktime</th>
+                <th>Capacity</th>
+                <th>Humiditylevel</th>
+                <th>Performance</th>
+                <th>Volume</th>
+                <th>Utilizationtime</th>
+                <th>Warranty</th>
+                <th>Imagesurl</th>
+                <th>Videourl</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('product_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.name }}</td>
+                <td>{{ entity.description }}</td>
+                <td>{{ entity.inStock }}</td>
+                <td>{{ entity.hydrostat }}</td>
+                <td>{{ entity.ionization }}</td>
+                <td>{{ entity.warmMist }}</td>
+                <td>{{ entity.aromatherapy }}</td>
+                <td>{{ entity.autoStop }}</td>
+                <td>{{ entity.light }}</td>
+                <td>{{ entity.filter }}</td>
+                <td>{{ entity.filterType }}</td>
+                <td>{{ entity.area }}</td>
+                <td>{{ entity.width }}</td>
+                <td>{{ entity.height }}</td>
+                <td>{{ entity.depth }}</td>
+                <td>{{ entity.minPower }}</td>
+                <td>{{ entity.maxPower }}</td>
+                <td>{{ entity.maxWorkTime }}</td>
+                <td>{{ entity.capacity }}</td>
+                <td>{{ entity.humidityLevel }}</td>
+                <td>{{ entity.performance }}</td>
+                <td>{{ entity.volume }}</td>
+                <td>{{ entity.utilizationTime }}</td>
+                <td>{{ entity.warranty }}</td>
+                <td>{{ entity.imagesURL }}</td>
+                <td>{{ entity.videoURL }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('product_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('product_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('product_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}
