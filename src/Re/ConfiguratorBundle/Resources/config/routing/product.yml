@@ -1,30 +1,30 @@
 product:
-    path:     /
+    pattern:  /
     defaults: { _controller: "ReConfiguratorBundle:Product:index" }
 
 product_show:
-    path:     /{id}/show
+    pattern:  /{id}/show
     defaults: { _controller: "ReConfiguratorBundle:Product:show" }
 
 product_new:
-    path:     /new
+    pattern:  /new
     defaults: { _controller: "ReConfiguratorBundle:Product:new" }
 
 product_create:
-    path:     /create
+    pattern:  /create
     defaults: { _controller: "ReConfiguratorBundle:Product:create" }
     requirements: { _method: post }
 
 product_edit:
-    path:     /{id}/edit
+    pattern:  /{id}/edit
     defaults: { _controller: "ReConfiguratorBundle:Product:edit" }
 
 product_update:
-    path:     /{id}/update
+    pattern:  /{id}/update
     defaults: { _controller: "ReConfiguratorBundle:Product:update" }
     requirements: { _method: post|put }
 
 product_delete:
-    path:     /{id}/delete
+    pattern:  /{id}/delete
     defaults: { _controller: "ReConfiguratorBundle:Product:delete" }
     requirements: { _method: post|delete }

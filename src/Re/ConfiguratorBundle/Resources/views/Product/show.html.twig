@@ -1,132 +1,115 @@
-{% extends '::base.html.twig' %}
+{% extends 'JordiLlonchCrudGeneratorBundle::layout.html.twig' %}
 
-{% block body -%}
-    <h1>Product</h1>
+{% block title %}
+{{ parent() }} - {{ 'views.show.show'|trans({'%entity%': 'Product'}, 'JordiLlonchCrudGeneratorBundle') }}
+{% endblock %}
 
-    <table class="record_properties">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ entity.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ entity.name }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ entity.description }}</td>
-            </tr>
-            <tr>
-                <th>Instock</th>
-                <td>{{ entity.inStock }}</td>
-            </tr>
-            <tr>
-                <th>Hydrostat</th>
-                <td>{{ entity.hydrostat }}</td>
-            </tr>
-            <tr>
-                <th>Ionization</th>
-                <td>{{ entity.ionization }}</td>
-            </tr>
-            <tr>
-                <th>Warmmist</th>
-                <td>{{ entity.warmMist }}</td>
-            </tr>
-            <tr>
-                <th>Aromatherapy</th>
-                <td>{{ entity.aromatherapy }}</td>
-            </tr>
-            <tr>
-                <th>Autostop</th>
-                <td>{{ entity.autoStop }}</td>
-            </tr>
-            <tr>
-                <th>Light</th>
-                <td>{{ entity.light }}</td>
-            </tr>
-            <tr>
-                <th>Filter</th>
-                <td>{{ entity.filter }}</td>
-            </tr>
-            <tr>
-                <th>Filtertype</th>
-                <td>{{ entity.filterType }}</td>
-            </tr>
-            <tr>
-                <th>Area</th>
-                <td>{{ entity.area }}</td>
-            </tr>
-            <tr>
-                <th>Width</th>
-                <td>{{ entity.width }}</td>
-            </tr>
-            <tr>
-                <th>Height</th>
-                <td>{{ entity.height }}</td>
-            </tr>
-            <tr>
-                <th>Depth</th>
-                <td>{{ entity.depth }}</td>
-            </tr>
-            <tr>
-                <th>Minpower</th>
-                <td>{{ entity.minPower }}</td>
-            </tr>
-            <tr>
-                <th>Maxpower</th>
-                <td>{{ entity.maxPower }}</td>
-            </tr>
-            <tr>
-                <th>Maxworktime</th>
-                <td>{{ entity.maxWorkTime }}</td>
-            </tr>
-            <tr>
-                <th>Capacity</th>
-                <td>{{ entity.capacity }}</td>
-            </tr>
-            <tr>
-                <th>Humiditylevel</th>
-                <td>{{ entity.humidityLevel }}</td>
-            </tr>
-            <tr>
-                <th>Performance</th>
-                <td>{{ entity.performance }}</td>
-            </tr>
-            <tr>
-                <th>Volume</th>
-                <td>{{ entity.volume }}</td>
-            </tr>
-            <tr>
-                <th>Utilizationtime</th>
-                <td>{{ entity.utilizationTime }}</td>
-            </tr>
-            <tr>
-                <th>Warranty</th>
-                <td>{{ entity.warranty }}</td>
-            </tr>
-            <tr>
-                <th>Imagesurl</th>
-                <td>{{ entity.imagesURL }}</td>
-            </tr>
-            <tr>
-                <th>Videourl</th>
-                <td>{{ entity.videoURL }}</td>
-            </tr>
-        </tbody>
-    </table>
+{% block page %}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('product') }}">
-            Back to the list
+<h1>Product</h1>
+
+<form class="form-horizontal">
+    <fieldset>        <div class="control-group">
+            <label class="control-label">Id</label>
+            <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.id }}</span>            </div>
+        </div>        <div class="control-group">
+            <label class="control-label">Name</label>
+            <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.name }}</span>            </div>
+        </div>        <div class="control-group">
+            <label class="control-label">Description</label>
+            <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.description }}</span>            </div>
+        </div>        <div class="control-group">
+            <label class="control-label">Instock</label>
+            <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.inStock }}</span>            </div>
+        </div>        <div class="control-group">
+            <label class="control-label">Hydrostat</label>
+            <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.hydrostat }}</span>            </div>
+        </div>        <div class="control-group">
+            <label class="control-label">Ionization</label>
+            <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.ionization }}</span>            </div>
+        </div>        <div class="control-group">
+            <label class="control-label">Warmmist</label>
+            <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.warmMist }}</span>            </div>
+        </div>        <div class="control-group">
+            <label class="control-label">Aromatherapy</label>
+            <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.aromatherapy }}</span>            </div>
+        </div>        <div class="control-group">
+            <label class="control-label">Autostop</label>
+            <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.autoStop }}</span>            </div>
+        </div>        <div class="control-group">
+            <label class="control-label">Light</label>
+            <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.light }}</span>            </div>
+        </div>        <div class="control-group">
+            <label class="control-label">Filter</label>
+            <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.filter }}</span>            </div>
+        </div>        <div class="control-group">
+            <label class="control-label">Filtertype</label>
+            <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.filterType }}</span>            </div>
+        </div>        <div class="control-group">
+            <label class="control-label">Area</label>
+            <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.area }}</span>            </div>
+        </div>        <div class="control-group">
+            <label class="control-label">Width</label>
+            <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.width }}</span>            </div>
+        </div>        <div class="control-group">
+            <label class="control-label">Height</label>
+            <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.height }}</span>            </div>
+        </div>        <div class="control-group">
+            <label class="control-label">Depth</label>
+            <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.depth }}</span>            </div>
+        </div>        <div class="control-group">
+            <label class="control-label">Minpower</label>
+            <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.minPower }}</span>            </div>
+        </div>        <div class="control-group">
+            <label class="control-label">Maxpower</label>
+            <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.maxPower }}</span>            </div>
+        </div>        <div class="control-group">
+            <label class="control-label">Maxworktime</label>
+            <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.maxWorkTime }}</span>            </div>
+        </div>        <div class="control-group">
+            <label class="control-label">Capacity</label>
+            <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.capacity }}</span>            </div>
+        </div>        <div class="control-group">
+            <label class="control-label">Humiditylevel</label>
+            <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.humidityLevel }}</span>            </div>
+        </div>        <div class="control-group">
+            <label class="control-label">Performance</label>
+            <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.performance }}</span>            </div>
+        </div>        <div class="control-group">
+            <label class="control-label">Volume</label>
+            <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.volume }}</span>            </div>
+        </div>        <div class="control-group">
+            <label class="control-label">Utilizationtime</label>
+            <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.utilizationTime }}</span>            </div>
+        </div>        <div class="control-group">
+            <label class="control-label">Warranty</label>
+            <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.warranty }}</span>            </div>
+        </div>        <div class="control-group">
+            <label class="control-label">Imagesurl</label>
+            <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.imagesURL }}</span>            </div>
+        </div>        <div class="control-group">
+            <label class="control-label">Videourl</label>
+            <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.videoURL }}</span>            </div>
+        </div>    </fieldset>
+</form>
+
+<div>
+    <div class="float-left">
+        <a class="btn" href="{{ path('product') }}">
+            {{ 'views.recordactions.backtothelist'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
         </a>
-    </li>
-    <li>
-        <a href="{{ path('product_edit', { 'id': entity.id }) }}">
-            Edit
+    </div>
+    <div class="float-left">
+        <a class="btn btn-primary" href="{{ path('product_edit', { 'id': entity.id }) }}">
+            {{ 'views.recordactions.edit'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
         </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+    </div>
+    <div class="float-left">
+        <form action="{{ path('product_delete', { 'id': entity.id }) }}" method="post">
+            <input type="hidden" name="_method" value="DELETE" />
+            {{ form_widget(delete_form) }}
+            <button class="btn btn-danger" type="submit" onclick="return confirm('{{ 'views.recordactions.confirm'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}');">{{ 'views.recordactions.delete'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}</button>
+        </form>
+    </div>
+</div>
 {% endblock %}
