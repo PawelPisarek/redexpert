@@ -17,15 +17,15 @@ class ProductType extends AbstractType
         $builder
             ->add('name')
             ->add('description')
-            ->add('inStock')
-            ->add('hydrostat')
-            ->add('ionization')
-            ->add('warmMist')
-            ->add('aromatherapy')
-            ->add('autoStop')
-            ->add('light')
-            ->add('filter')
-            ->add('filterType')
+            ->add('inStock', 'checkbox', array('required'=>false))
+            ->add('hydrostat', 'checkbox', array('required'=>false))
+            ->add('ionization', 'checkbox', array('required'=>false))
+            ->add('warmMist', 'checkbox', array('required'=>false))
+            ->add('aromatherapy', 'checkbox', array('required'=>false))
+            ->add('autoStop', 'checkbox', array('required'=>false))
+            ->add('light', 'checkbox', array('required'=>false))
+            ->add('filter', 'checkbox', array('required'=>false))
+            ->add('filterType', 'text', array('required'=>false))
             ->add('area')
             ->add('width')
             ->add('height')
@@ -39,15 +39,15 @@ class ProductType extends AbstractType
             ->add('volume')
             ->add('utilizationTime')
             ->add('warranty')
-            ->add('imagesURL')
-            ->add('videoURL')
+            ->add('imagesURL', 'text', array('required'=>false))
+            ->add('videoURL', 'text', array('required'=>false))
             ->add('technology')
             ->add('colors')
             ->add('includedAccessories')
             ->add('additionalAccessories')
         ;
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */
