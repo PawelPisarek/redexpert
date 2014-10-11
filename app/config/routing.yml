@@ -1,0 +1,4 @@
+re_configurator:
+    resource: "@ReConfiguratorBundle/Resources/config/routing.yml"
+    prefix:   /
+
