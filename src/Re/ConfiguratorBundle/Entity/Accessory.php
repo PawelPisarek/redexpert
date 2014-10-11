@@ -28,6 +28,13 @@ class Accessory
      */
     private $name;
 
+    /**
+     * @return string Text representation of accessory
+     */
+    public function __toString()
+    {
+        return $this->name;
+    }
 
     /**
      * Get id
