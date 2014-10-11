@@ -1,0 +1,30 @@
+color:
+    path:     /
+    defaults: { _controller: "ReConfiguratorBundle:Color:index" }
+
+color_show:
+    path:     /{id}/show
+    defaults: { _controller: "ReConfiguratorBundle:Color:show" }
+
+color_new:
+    path:     /new
+    defaults: { _controller: "ReConfiguratorBundle:Color:new" }
+
+color_create:
+    path:     /create
+    defaults: { _controller: "ReConfiguratorBundle:Color:create" }
+    requirements: { _method: post }
+
+color_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ReConfiguratorBundle:Color:edit" }
+
+color_update:
+    path:     /{id}/update
+    defaults: { _controller: "ReConfiguratorBundle:Color:update" }
+    requirements: { _method: post|put }
+
+color_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ReConfiguratorBundle:Color:delete" }
+    requirements: { _method: post|delete }

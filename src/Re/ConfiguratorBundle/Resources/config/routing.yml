@@ -1,3 +1,7 @@
+re_configurator_color:
+    resource: "@ReConfiguratorBundle/Resources/config/routing/color.yml"
+    prefix:   /color
+
 re_configurator_homepage:
     path:     /hello/{name}
     defaults: { _controller: ReConfiguratorBundle:Default:index }
