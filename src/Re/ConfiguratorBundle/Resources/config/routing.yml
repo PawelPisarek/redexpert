@@ -1,3 +1,7 @@
+re_configurator_accessory:
+    resource: "@ReConfiguratorBundle/Resources/config/routing/accessory.yml"
+    prefix:   /accessory
+
 re_configurator_product:
     resource: "@ReConfiguratorBundle/Resources/config/routing/product.yml"
     prefix:   /product

@@ -1,0 +1,30 @@
+accessory:
+    path:     /
+    defaults: { _controller: "ReConfiguratorBundle:Accessory:index" }
+
+accessory_show:
+    path:     /{id}/show
+    defaults: { _controller: "ReConfiguratorBundle:Accessory:show" }
+
+accessory_new:
+    path:     /new
+    defaults: { _controller: "ReConfiguratorBundle:Accessory:new" }
+
+accessory_create:
+    path:     /create
+    defaults: { _controller: "ReConfiguratorBundle:Accessory:create" }
+    requirements: { _method: post }
+
+accessory_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ReConfiguratorBundle:Accessory:edit" }
+
+accessory_update:
+    path:     /{id}/update
+    defaults: { _controller: "ReConfiguratorBundle:Accessory:update" }
+    requirements: { _method: post|put }
+
+accessory_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ReConfiguratorBundle:Accessory:delete" }
+    requirements: { _method: post|delete }
