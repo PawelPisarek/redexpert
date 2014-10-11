@@ -29,6 +29,14 @@ class Technology
     private $name;
 
     /**
+     * @return string Technology string representation
+     */
+    public function __toString()
+    {
+        return $this->name;
+    }
+
+    /**
      * Get id
      *
      * @return integer
