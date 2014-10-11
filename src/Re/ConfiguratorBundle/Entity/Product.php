@@ -854,4 +854,126 @@ class Product
     {
         return $this->videoURL;
     }
+
+    /**
+     * Set technology
+     *
+     * @param \Re\ConfiguratorBundle\Entity\Technology $technology
+     * @return Product
+     */
+    public function setTechnology(\Re\ConfiguratorBundle\Entity\Technology $technology = null)
+    {
+        $this->technology = $technology;
+
+        return $this;
+    }
+
+    /**
+     * Get technology
+     *
+     * @return \Re\ConfiguratorBundle\Entity\Technology
+     */
+    public function getTechnology()
+    {
+        return $this->technology;
+    }
+
+    /**
+     * Add colors
+     *
+     * @param \Re\ConfiguratorBundle\Entity\Color $colors
+     * @return Product
+     */
+    public function addColor(\Re\ConfiguratorBundle\Entity\Color $colors)
+    {
+        $this->colors[] = $colors;
+
+        return $this;
+    }
+
+    /**
+     * Remove colors
+     *
+     * @param \Re\ConfiguratorBundle\Entity\Color $colors
+     */
+    public function removeColor(\Re\ConfiguratorBundle\Entity\Color $colors)
+    {
+        $this->colors->removeElement($colors);
+    }
+
+    /**
+     * Get colors
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getColors()
+    {
+        return $this->colors;
+    }
+
+    /**
+     * Add includedAccessories
+     *
+     * @param \Re\ConfiguratorBundle\Entity\Accessory $includedAccessories
+     * @return Product
+     */
+    public function addIncludedAccessory(\Re\ConfiguratorBundle\Entity\Accessory $includedAccessories)
+    {
+        $this->includedAccessories[] = $includedAccessories;
+
+        return $this;
+    }
+
+    /**
+     * Remove includedAccessories
+     *
+     * @param \Re\ConfiguratorBundle\Entity\Accessory $includedAccessories
+     */
+    public function removeIncludedAccessory(\Re\ConfiguratorBundle\Entity\Accessory $includedAccessories)
+    {
+        $this->includedAccessories->removeElement($includedAccessories);
+    }
+
+    /**
+     * Get includedAccessories
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getIncludedAccessories()
+    {
+        return $this->includedAccessories;
+    }
+
+    /**
+     * Add additionalAccessories
+     *
+     * @param \Re\ConfiguratorBundle\Entity\Accessory $additionalAccessories
+     * @return Product
+     */
+    public function addAdditionalAccessory(\Re\ConfiguratorBundle\Entity\Accessory $additionalAccessories)
+    {
+        $this->additionalAccessories[] = $additionalAccessories;
+
+        return $this;
+    }
+
+    /**
+     * Remove additionalAccessories
+     *
+     * @param \Re\ConfiguratorBundle\Entity\Accessory $additionalAccessories
+     */
+    public function removeAdditionalAccessory(\Re\ConfiguratorBundle\Entity\Accessory $additionalAccessories)
+    {
+        $this->additionalAccessories->removeElement($additionalAccessories);
+    }
+
+    /**
+     * Get additionalAccessories
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAdditionalAccessories()
+    {
+        return $this->additionalAccessories;
+    }
 }
