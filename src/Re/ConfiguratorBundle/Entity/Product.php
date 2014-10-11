@@ -495,7 +495,8 @@ class Product
      */
     public function setFilterType($filterType)
     {
-        $this->filterType = $filterType;
+        // Because doctrine sucks...
+        $this->filterType = (string)$filterType;
 
         return $this;
     }
