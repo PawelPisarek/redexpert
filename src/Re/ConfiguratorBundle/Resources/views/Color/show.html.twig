@@ -1,32 +1,40 @@
-{% extends '::base.html.twig' %}
+{% extends 'JordiLlonchCrudGeneratorBundle::layout.html.twig' %}
 
-{% block body -%}
-    <h1>Color</h1>
+{% block title %}
+{{ parent() }} - {{ 'views.show.show'|trans({'%entity%': 'Color'}, 'JordiLlonchCrudGeneratorBundle') }}
+{% endblock %}
 
-    <table class="record_properties">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ entity.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ entity.name }}</td>
-            </tr>
-        </tbody>
-    </table>
+{% block page %}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('color') }}">
-            Back to the list
+<h1>Color</h1>
+
+<form class="form-horizontal">
+    <fieldset>        <div class="control-group">
+            <label class="control-label">Id</label>
+            <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.id }}</span>            </div>
+        </div>        <div class="control-group">
+            <label class="control-label">Name</label>
+            <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.name }}</span>            </div>
+        </div>    </fieldset>
+</form>
+
+<div>
+    <div class="float-left">
+        <a class="btn" href="{{ path('color') }}">
+            {{ 'views.recordactions.backtothelist'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
         </a>
-    </li>
-    <li>
-        <a href="{{ path('color_edit', { 'id': entity.id }) }}">
-            Edit
+    </div>
+    <div class="float-left">
+        <a class="btn btn-primary" href="{{ path('color_edit', { 'id': entity.id }) }}">
+            {{ 'views.recordactions.edit'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
         </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+    </div>
+    <div class="float-left">
+        <form action="{{ path('color_delete', { 'id': entity.id }) }}" method="post">
+            <input type="hidden" name="_method" value="DELETE" />
+            {{ form_widget(delete_form) }}
+            <button class="btn btn-danger" type="submit" onclick="return confirm('{{ 'views.recordactions.confirm'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}');">{{ 'views.recordactions.delete'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}</button>
+        </form>
+    </div>
+</div>
 {% endblock %}

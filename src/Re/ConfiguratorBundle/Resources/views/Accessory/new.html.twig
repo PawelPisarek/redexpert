@@ -1,15 +1,25 @@
-{% extends '::base.html.twig' %}
+{% extends 'JordiLlonchCrudGeneratorBundle::layout.html.twig' %}
 
-{% block body -%}
-    <h1>Accessory creation</h1>
+{% block title %}
+{{ parent() }} - {{ 'views.new.creation'|trans({'%entity%': 'Accessory'}, 'JordiLlonchCrudGeneratorBundle') }}
+{% endblock %}
 
-    {{ form(form) }}
+{% block page %}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('accessory') }}">
-            Back to the list
+<h1>{{ 'views.new.creation'|trans({'%entity%': 'Accessory'}, 'JordiLlonchCrudGeneratorBundle') }}</h1>
+
+<form class="well" action="{{ path('accessory_create') }}" method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+    <p>
+        <button type="submit" class="btn btn-success">{{ 'views.new.create'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}</button>
+    </p>
+</form>
+
+<div>
+    <div class="float-left">
+        <a class="btn" href="{{ path('accessory') }}">
+            {{ 'views.recordactions.backtothelist'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
         </a>
-    </li>
-</ul>
+    </div>
+</div>
 {% endblock %}
