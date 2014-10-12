@@ -8,8 +8,6 @@ class HomepageController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('ReConfiguratorBundle:Homepage:index.html.twig', array(
-                // ...
-            ));    }
-
+        return $this->render('ReConfiguratorBundle:Homepage:index.html.twig');
+    }
 }
