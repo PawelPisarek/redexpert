@@ -13,53 +13,31 @@ class ProductFilterType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $choices = array(
+            'choices' => array(
+                1 => 'filter.yes',
+                0 => 'filter.no',
+            ),
+            'required'=>false,
+            'translation_domain'=>'ReConfiguratorBundle',
+        );
+
         $builder
-            ->add('id', 'filter_number_range')
-            ->add('name', 'filter_text')
-            ->add('description', 'filter_text')
-            ->add('inStock', 'filter_choice')
-            ->add('hydrostat', 'filter_choice')
-            ->add('ionization', 'filter_choice')
-            ->add('warmMist', 'filter_choice')
-            ->add('aromatherapy', 'filter_choice')
-            ->add('autoStop', 'filter_choice')
-            ->add('light', 'filter_choice')
-            ->add('filter', 'filter_choice')
-            ->add('filterType', 'filter_text')
-            ->add('area', 'filter_number_range')
-            ->add('width', 'filter_number_range')
-            ->add('height', 'filter_number_range')
-            ->add('depth', 'filter_number_range')
-            ->add('minPower', 'filter_number_range')
-            ->add('maxPower', 'filter_number_range')
-            ->add('maxWorkTime', 'filter_number_range')
-            ->add('capacity', 'filter_number_range')
-            ->add('humidityLevel', 'filter_text')
-            ->add('performance', 'filter_number_range')
-            ->add('volume', 'filter_text')
-            ->add('utilizationTime', 'filter_text')
-            ->add('warranty', 'filter_number_range')
-            ->add('imagesURL', 'filter_text')
-            ->add('videoURL', 'filter_text')
-        ;
+            ->add('technology')
+            ->add('ionization', 'filter_choice', $choices)
+            ->add('aromatherapy', 'filter_choice', $choices)
+            ->add('warmMist', 'filter_choice', $choices)
+            ->add('hydrostat', 'filter_choice', $choices);
+    }
 
-        $listener = function(FormEvent $event)
-        {
-            // Is data empty?
-            foreach ($event->getData() as $data) {
-                if(is_array($data)) {
-                    foreach ($data as $subData) {
-                        if(!empty($subData)) return;
-                    }
-                }
-                else {
-                    if(!empty($data)) return;
-                }
-            }
-
-            $event->getForm()->addError(new FormError('Filter empty'));
-        };
-        $builder->addEventListener(FormEvents::POST_BIND, $listener);
+    /**
+     * @param OptionsResolverInterface $resolver
+     */
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    {
+        $resolver->setDefaults(array(
+            'data_class' => 'Re\ConfiguratorBundle\Entity\Product'
+        ));
     }
 
     public function getName()
