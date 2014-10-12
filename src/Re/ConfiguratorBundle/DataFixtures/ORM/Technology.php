@@ -14,7 +14,7 @@ class LoadTechnologyData implements FixtureInterface
     {
         $technologies = array('Ultradżwiękowy', 'Ewaporacyjny', 'Parowy');
 
-        foreach($technologies as $technology) {
+        foreach ($technologies as $technology) {
             $entity = new Technology;
             $entity->setName($technology);
 

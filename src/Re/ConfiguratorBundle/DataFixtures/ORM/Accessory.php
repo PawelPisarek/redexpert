@@ -17,7 +17,7 @@ class LoadAccessoryData implements FixtureInterface
             'Elimincacja bakterii i innych patogenów', 'Można dodać Ionic Silver Cube',
         );
 
-        foreach($accessories as $accessory) {
+        foreach ($accessories as $accessory) {
             $entity = new Accessory;
             $entity->setName($accessory);
 

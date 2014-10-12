@@ -14,7 +14,7 @@ class LoadColorData implements FixtureInterface
     {
         $colors = array('Biały', 'Czarny', 'Malinowy', 'Biało-czarny');
 
-        foreach($colors as $color) {
+        foreach ($colors as $color) {
             $entity = new Color;
             $entity->setName($color);
 
