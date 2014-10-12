@@ -33,7 +33,7 @@
 
     <div class="span12">
         <h2 class="text-{{ entities.count > 0 ? 'success' : 'error' }}">
-            {{ 'Total results count' }}: {{ entities.count }}
+            {{ 'Total results count'|trans }}: {{ entities.count }}
         </h2>
     </div>
 
@@ -48,7 +48,6 @@
                     <th>{{ "Ionization"|trans }}</th>
                     <th>{{ "Warmmist"|trans }}</th>
                     <th>{{ "Aromatherapy"|trans }}</th>
-                    <th>{{ "Autostop"|trans }}</th>
                     <th></th>
                 </tr>
             </thead>
@@ -58,12 +57,11 @@
                     <tr>
                         <td>{{ entity.name }}</td>
                         <td>{{ entity.technology }}</td>
-                        <td>{{ entity.inStock }}</td>
-                        <td>{{ entity.hydrostat }}</td>
-                        <td>{{ entity.ionization }}</td>
-                        <td>{{ entity.warmMist }}</td>
-                        <td>{{ entity.aromatherapy }}</td>
-                        <td>{{ entity.autoStop }}</td>
+                        <td>{{ entity.inStock ? 'Tak' : 'Nie' }}</td>
+                        <td>{{ entity.hydrostat ? 'Tak' : 'Nie' }}</td>
+                        <td>{{ entity.ionization ? 'Tak' : 'Nie' }}</td>
+                        <td>{{ entity.warmMist ? 'Tak' : 'Nie' }}</td>
+                        <td>{{ entity.aromatherapy ? 'Tak' : 'Nie' }}</td>
                         <td style="text-align:center;"><i class="icon-question-sign" data-toggle="tooltip" title="{{ entity.description }}"></i></td>
                     </tr>
                 {% endfor %}
