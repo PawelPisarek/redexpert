@@ -13,16 +13,24 @@
     </div>
 
     <div class="span12">
-        <div id="filters">
-            <form class="well" action="{{ path('product') }}" method="get" {{ form_enctype(filterForm) }}>
-                {{ form_widget(filterForm) }}
+        <form class="well" action="{{ path('product') }}" method="get" {{ form_enctype(filterForm) }}>
+            {{ form_widget(filterForm._token) }}
 
-                <p>
-                    <button type="submit" name="filter_action" value="filter">{{ 'views.index.filter'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}</button>
-                    <button type="submit" name="filter_action" value="reset">{{ 'views.index.reset'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}</button>
-                </p>
-            </form>
-        </div>
+            <div class="row">
+                <div class="span4">{{ form_row(filterForm.technology) }}</div>
+                <div class="span4">{{ form_row(filterForm.ionization) }}</div>
+                <div class="span3">{{ form_row(filterForm.aromatherapy) }}</div>
+            </div>
+
+            <div class="row">
+                <div class="span4">{{ form_row(filterForm.warmMist) }}</div>
+                <div class="span4">{{ form_row(filterForm.hydrostat) }}</div>
+                <div class="span3">
+                    <button type="submit" name="filter_action" value="filter" class="btn btn-success">{{ 'views.index.filter'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}</button>
+                    <button type="submit" name="filter_action" value="reset" class="btn btn-danger">{{ 'views.index.reset'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}</button>
+                </div>
+            </div>
+        </form>
     </div>
 
     <div class="span12">
@@ -30,73 +38,27 @@
     <table class="table table-striped table-bordered table-condensed">
     <thead>
         <tr>
-            <th>Id</th>
             <th>Name</th>
-            <th>Description</th>
+            <th>Technology</th>
             <th>Instock</th>
             <th>Hydrostat</th>
             <th>Ionization</th>
             <th>Warmmist</th>
             <th>Aromatherapy</th>
             <th>Autostop</th>
-            <th>Light</th>
-            <th>Filter</th>
-            <th>Filtertype</th>
-            <th>Area</th>
-            <th>Width</th>
-            <th>Height</th>
-            <th>Depth</th>
-            <th>Minpower</th>
-            <th>Maxpower</th>
-            <th>Maxworktime</th>
-            <th>Capacity</th>
-            <th>Humiditylevel</th>
-            <th>Performance</th>
-            <th>Volume</th>
-            <th>Utilizationtime</th>
-            <th>Warranty</th>
-            <th>Imagesurl</th>
-            <th>Videourl</th>
-            <th>{{ 'views.index.actions'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}</th>
         </tr>
     </thead>
     <tbody>
     {% for entity in entities %}
         <tr>
-            <td><a href="{{ path('product_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
             <td>{{ entity.name }}</td>
-            <td>{{ entity.description }}</td>
+            <td>{{ entity.technology }}</td>
             <td>{{ entity.inStock }}</td>
             <td>{{ entity.hydrostat }}</td>
             <td>{{ entity.ionization }}</td>
             <td>{{ entity.warmMist }}</td>
             <td>{{ entity.aromatherapy }}</td>
             <td>{{ entity.autoStop }}</td>
-            <td>{{ entity.light }}</td>
-            <td>{{ entity.filter }}</td>
-            <td>{{ entity.filterType }}</td>
-            <td>{{ entity.area }}</td>
-            <td>{{ entity.width }}</td>
-            <td>{{ entity.height }}</td>
-            <td>{{ entity.depth }}</td>
-            <td>{{ entity.minPower }}</td>
-            <td>{{ entity.maxPower }}</td>
-            <td>{{ entity.maxWorkTime }}</td>
-            <td>{{ entity.capacity }}</td>
-            <td>{{ entity.humidityLevel }}</td>
-            <td>{{ entity.performance }}</td>
-            <td>{{ entity.volume }}</td>
-            <td>{{ entity.utilizationTime }}</td>
-            <td>{{ entity.warranty }}</td>
-            <td>{{ entity.imagesURL }}</td>
-            <td>{{ entity.videoURL }}</td>
-            <td>
-        <a class="btn btn-mini" href="{{ path('product_show', { 'id': entity.id }) }}">
-            {{ 'views.actions.show'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
-        </a>
-        <a class="btn btn-mini" href="{{ path('product_edit', { 'id': entity.id }) }}">
-            {{ 'views.actions.edit'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
-        </a>            </td>
         </tr>
     {% endfor %}
     </tbody>

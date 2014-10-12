@@ -24,10 +24,10 @@ class ProductFilterType extends AbstractType
 
         $builder
             ->add('technology')
-            ->add('ionization', 'choice', $choices)
-            ->add('aromatherapy', 'choice', $choices)
-            ->add('warmMist', 'choice', $choices)
-            ->add('hydrostat', 'choice', $choices);
+            ->add('ionization', 'filter_choice', $choices)
+            ->add('aromatherapy', 'filter_choice', $choices)
+            ->add('warmMist', 'filter_choice', $choices)
+            ->add('hydrostat', 'filter_choice', $choices);
     }
 
     /**
