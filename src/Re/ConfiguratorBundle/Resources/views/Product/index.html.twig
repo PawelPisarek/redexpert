@@ -1,161 +1,89 @@
 {% extends 'JordiLlonchCrudGeneratorBundle::layout.html.twig' %}
 
 {% block title %}
-{{ parent() }} - {{ 'views.index.list'|trans({'%entity%': 'Product'}, 'JordiLlonchCrudGeneratorBundle') }}
+    {{ parent() }} - {{ 'views.index.list'|trans({'%entity%': 'Product'}, 'JordiLlonchCrudGeneratorBundle') }}
 {% endblock %}
 
 {% block page %}
 
 <div class="row">
-
-    <div class="span8">
+    <div class="span12">
         <h1>{{ 'views.index.list'|trans({'%entity%': 'Product'}, 'JordiLlonchCrudGeneratorBundle') }}</h1>
     </div>
-    <div class="span2">
-        {% if form_errors(filterForm) %}
-        <div class="alert alert-block alert-error fade in form-errors">
-            {{ form_errors(filterForm) }}
-        </div>
-        {% endif %}
-        &nbsp;
-    </div>
-    <div class="span2">
-        <div class="filters-right">
-            <a class="btn dropdown-toggle" data-toggle="collapse" data-target="#filters">
-                {{ 'views.index.filters'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
-                <span class="caret"></span>
-            </a>
-        </div>
+
+    <div class="span12">
+        <form class="well" action="{{ path('product') }}" method="get" {{ form_enctype(filterForm) }}>
+            {{ form_widget(filterForm._token) }}
+
+            <div class="row">
+                <div class="span4">{{ form_row(filterForm.technology) }}</div>
+                <div class="span4">{{ form_row(filterForm.ionization) }}</div>
+                <div class="span3">{{ form_row(filterForm.aromatherapy) }}</div>
+            </div>
+
+            <div class="row">
+                <div class="span4">{{ form_row(filterForm.warmMist) }}</div>
+                <div class="span4">{{ form_row(filterForm.hydrostat) }}</div>
+                <div class="span3">
+                    <button type="submit" name="filter_action" value="filter" class="btn btn-success">{{ 'views.index.filter'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}</button>
+                </div>
+            </div>
+        </form>
     </div>
 
     <div class="span12">
-        <div id="filters" class="collapse">
-
-            <form class="well" action="{{ path('product') }}" method="get" {{ form_enctype(filterForm) }}>
-                {{ form_row(filterForm.id) }}
-                {{ form_row(filterForm.name) }}
-                {{ form_row(filterForm.description) }}
-                {{ form_row(filterForm.inStock) }}
-                {{ form_row(filterForm.hydrostat) }}
-                {{ form_row(filterForm.ionization) }}
-                {{ form_row(filterForm.warmMist) }}
-                {{ form_row(filterForm.aromatherapy) }}
-                {{ form_row(filterForm.autoStop) }}
-                {{ form_row(filterForm.light) }}
-                {{ form_row(filterForm.filter) }}
-                {{ form_row(filterForm.filterType) }}
-                {{ form_row(filterForm.area) }}
-                {{ form_row(filterForm.width) }}
-                {{ form_row(filterForm.height) }}
-                {{ form_row(filterForm.depth) }}
-                {{ form_row(filterForm.minPower) }}
-                {{ form_row(filterForm.maxPower) }}
-                {{ form_row(filterForm.maxWorkTime) }}
-                {{ form_row(filterForm.capacity) }}
-                {{ form_row(filterForm.humidityLevel) }}
-                {{ form_row(filterForm.performance) }}
-                {{ form_row(filterForm.volume) }}
-                {{ form_row(filterForm.utilizationTime) }}
-                {{ form_row(filterForm.warranty) }}
-                {{ form_row(filterForm.imagesURL) }}
-                {{ form_row(filterForm.videoURL) }}
-                {{ form_rest(filterForm) }}
-
-                <p>
-                    <button type="submit" name="filter_action" value="filter">{{ 'views.index.filter'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}</button>
-                    <button type="submit" name="filter_action" value="reset">{{ 'views.index.reset'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}</button>
-                </p>
-            </form>
-        </div>
+        <h2 class="text-{{ entities.count > 0 ? 'success' : 'error' }}">
+            {{ 'Total results count' }}: {{ entities.count }}
+        </h2>
     </div>
 
     <div class="span12">
+        <table class="table table-striped table-bordered table-condensed">
+            <thead>
+                <tr>
+                    <th>{{ "Name"|trans }}</th>
+                    <th>{{ "Technology"|trans }}</th>
+                    <th>{{ "Instock"|trans }}</th>
+                    <th>{{ "Hydrostat"|trans }}</th>
+                    <th>{{ "Ionization"|trans }}</th>
+                    <th>{{ "Warmmist"|trans }}</th>
+                    <th>{{ "Aromatherapy"|trans }}</th>
+                    <th>{{ "Autostop"|trans }}</th>
+                    <th></th>
+                </tr>
+            </thead>
 
-    <table class="table table-striped table-bordered table-condensed">
-    <thead>
-        <tr>
-            <th> Id </th>
-            <th>{{ 'Name'|trans }}</th>
-            <th>{{ "Description"|trans }}</th>
-            <th>{{ "Instock"|trans }}</th>
-            <th>{{ "Hydrostat"|trans }}</th>
-            <th>{{ "Ionization"|trans }}</th>
-            <th>{{ "Warmmist"|trans }}</th>
-            <th>{{ "Aromatherapy"|trans }}</th>
-            <th>{{ "Autostop"|trans }}</th>
-            <th>{{ "Light"|trans }}</th>
-            <th>{{ "Filter"|trans }}</th>
-            <th>{{ "Filtertype"|trans }}</th>
-            <th>{{ "Area"|trans }}</th>
-            <th>{{ "Width"|trans }}</th>
-            <th>{{ "Height"|trans }}</th>
-            <th>{{ "Depth"|trans }}</th>
-            <th>{{ "Minpower"|trans }}</th>
-            <th>{{ "Maxpower"|trans }}</th>
-            <th>{{ "Maxworktime"|trans }}</th>
-            <th>{{ "Capacity"|trans }}</th>
-            <th>{{ "Humiditylevel"|trans }}</th>
-            <th>{{ "Performance"|trans }}</th>
-            <th>{{ "Volume"|trans }}</th>
-            <th>{{ "Utilizationtime"|trans }}</th>
-            <th>{{ "Warranty"|trans }}</th>
-            <th>{{ "Imagesurl"|trans }}</th>
-            <th>{{ "Videourl"|trans }}</th>
-            <th>{{ 'views.index.actions'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}</th>
-        </tr>
-    </thead>
-    <tbody>
-    {% for entity in entities %}
-        <tr>
-            <td><a href="{{ path('product_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-            <td>{{ entity.name }}</td>
-            <td>{{ entity.description }}</td>
-            <td>{{ entity.inStock }}</td>
-            <td>{{ entity.hydrostat }}</td>
-            <td>{{ entity.ionization }}</td>
-            <td>{{ entity.warmMist }}</td>
-            <td>{{ entity.aromatherapy }}</td>
-            <td>{{ entity.autoStop }}</td>
-            <td>{{ entity.light }}</td>
-            <td>{{ entity.filter }}</td>
-            <td>{{ entity.filterType }}</td>
-            <td>{{ entity.area }}</td>
-            <td>{{ entity.width }}</td>
-            <td>{{ entity.height }}</td>
-            <td>{{ entity.depth }}</td>
-            <td>{{ entity.minPower }}</td>
-            <td>{{ entity.maxPower }}</td>
-            <td>{{ entity.maxWorkTime }}</td>
-            <td>{{ entity.capacity }}</td>
-            <td>{{ entity.humidityLevel }}</td>
-            <td>{{ entity.performance }}</td>
-            <td>{{ entity.volume }}</td>
-            <td>{{ entity.utilizationTime }}</td>
-            <td>{{ entity.warranty }}</td>
-            <td>{{ entity.imagesURL }}</td>
-            <td>{{ entity.videoURL }}</td>
-            <td>
-        <a class="btn btn-mini" href="{{ path('product_show', { 'id': entity.id }) }}">
-            {{ 'views.actions.show'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
-        </a>
-        <a class="btn btn-mini" href="{{ path('product_edit', { 'id': entity.id }) }}">
-            {{ 'views.actions.edit'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
-        </a>            </td>
-        </tr>
-    {% endfor %}
-    </tbody>
-</table>
+            <tbody>
+                {% for entity in entities %}
+                    <tr>
+                        <td>{{ entity.name }}</td>
+                        <td>{{ entity.technology }}</td>
+                        <td>{{ entity.inStock }}</td>
+                        <td>{{ entity.hydrostat }}</td>
+                        <td>{{ entity.ionization }}</td>
+                        <td>{{ entity.warmMist }}</td>
+                        <td>{{ entity.aromatherapy }}</td>
+                        <td>{{ entity.autoStop }}</td>
+                        <td style="text-align:center;"><i class="icon-question-sign" data-toggle="tooltip" title="{{ entity.description }}"></i></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
 
-    <div class="span4">
-    {{ pagerHtml|raw }}
-    </div>
+    <div class="span4">&nbsp;</div>
 
-        <div class="span8">
-    <a class="btn btn-primary likepaginator" href="{{ path('product_new') }}">
+    <div class="span8">
+        <a class="btn btn-primary likepaginator" href="{{ path('product_new') }}">
             {{ 'views.index.createnew'|trans({}, 'JordiLlonchCrudGeneratorBundle') }} Product
         </a>
     </div>
-    </div>
+</div>
 
+{% endblock %}
+
+{% block javascript %}
+    <script>
+        jQuery('i').tooltip({placement:'right'});
+    </script>
 {% endblock %}
