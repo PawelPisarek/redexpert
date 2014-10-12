@@ -5,28 +5,22 @@ use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Re\ConfiguratorBundle\Entity\Technology;
 
-class LoadTechnologydata implements FixtureInterface
+class LoadTechnologyData implements FixtureInterface
 {
+    /**
+     * {@inheritDoc}
+     */
     public function load(ObjectManager $manager)
     {
-        $setColor = new Technology();
-        $setColor->setName('ultradżwiękowy');
-        $manager->persist($setColor);
+        $technologies = array('Ultradżwiękowy', 'Ewaporacyjny', 'Parowy');
 
-        $setColor1 = new Technology();
-        $setColor1->setName('ewaporacyjny');
-        $manager->persist($setColor1);
+        foreach($technologies as $technology) {
+            $entity = new Technology;
+            $entity->setName($technology);
 
-        $setColor2 = new Technology();
-        $setColor2->setName('parowy');
-        $manager->persist($setColor2);
-
-
-
-
-
+            $manager->persist($entity);
+        }
 
         $manager->flush();
-
     }
 }
