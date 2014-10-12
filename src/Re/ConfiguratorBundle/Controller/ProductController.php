@@ -43,15 +43,9 @@ class ProductController extends Controller
     protected function filter()
     {
         $request = $this->getRequest();
-        $session = $request->getSession();
         $filterForm = $this->createForm(new ProductFilterType());
         $em = $this->getDoctrine()->getManager();
         $queryBuilder = $em->getRepository('ReConfiguratorBundle:Product')->createQueryBuilder('e');
-
-        // Reset filter
-        if ($request->get('filter_action') == 'reset') {
-            $session->remove('ProductControllerFilter');
-        }
 
         // Filter action
         if ($request->get('filter_action') == 'filter') {
@@ -60,16 +54,6 @@ class ProductController extends Controller
 
             if ($filterForm->isValid()) {
                 // Build the query from the given form object
-                $this->get('lexik_form_filter.query_builder_updater')->addFilterConditions($filterForm, $queryBuilder);
-                // Save filter to session
-                $filterData = $filterForm->getData();
-                $session->set('ProductControllerFilter', $filterData);
-            }
-        } else {
-            // Get filter from session
-            if ($session->has('ProductControllerFilter')) {
-                $filterData = $session->get('ProductControllerFilter');
-                $filterForm = $this->createForm(new ProductFilterType(), $filterData);
                 $this->get('lexik_form_filter.query_builder_updater')->addFilterConditions($filterForm, $queryBuilder);
             }
         }
