@@ -130,7 +130,7 @@ class Product
      *
      * @ORM\Column(name="filterType", type="string", length=100)
      */
-    private $filterType;
+    private $filterType = '';
 
     /**
      * @var integer
@@ -228,14 +228,14 @@ class Product
      *
      * @ORM\Column(name="imagesURL", type="string", length=255)
      */
-    private $imagesURL;
+    private $imagesURL = '';
 
     /**
      * @var string
      *
      * @ORM\Column(name="videoURL", type="string", length=255)
      */
-    private $videoURL;
+    private $videoURL = '';
 
     /**
      *
@@ -495,7 +495,7 @@ class Product
      */
     public function setFilterType($filterType)
     {
-        $this->filterType = $filterType;
+        $this->filterType = (string)$filterType;
 
         return $this;
     }
@@ -817,7 +817,7 @@ class Product
      */
     public function setImagesURL($imagesURL)
     {
-        $this->imagesURL = $imagesURL;
+        $this->imagesURL = (string)$imagesURL;
 
         return $this;
     }
@@ -840,7 +840,7 @@ class Product
      */
     public function setVideoURL($videoURL)
     {
-        $this->videoURL = $videoURL;
+        $this->videoURL = (string)$videoURL;
 
         return $this;
     }
